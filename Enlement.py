@@ -75,6 +75,7 @@ class operation:
         width = driver.get_window_size().get('width')
         height = driver.get_window_size().get('height')
         boss = 0
+        operation.exit_is(driver, tager, wait)
         while time > boss:
             try:
                    if driver.find_element_by_android_uiautomator(tager):
@@ -102,6 +103,7 @@ class operation:
         width = driver.get_window_size().get('width')
         height = driver.get_window_size().get('height')
         boss = 0
+        operation.exit_is(driver, tager, wait)
         while time > boss:
             try:
                 if driver.find_element_by_android_uiautomator(tager):

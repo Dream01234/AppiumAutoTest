@@ -48,7 +48,7 @@ Enlement.operation.find_uiautomator_tager_click(driver, 'text("19#自身")', 5, 
 Enlement.operation.find_uiautomator_tager_click(driver, 'text("混凝土结构工程")', 5, 3)
 Enlement.operation.find_uiautomator_tager_click(driver, 'text("截面尺寸")', 5, 3)
 Enlement.operation.find_uiautomator_tager_click(driver, 'text("确定")', 5, 3)
-Enlement.operation.touch(driver, 689, 1050)
+Enlement.operation.touch(driver, 430, 820)
 Enlement.operation.find_uiautomator_tager_click(driver, 'resourceId("android:id/button2").text("是")', 5, 3)
 Enlement.operation.find_uiautomator_tager_click(driver, 'resourceId("cn.smartinspection.combine:id/et_value").text("设计值")', 5, 3)
 Enlement.operation.find_uiautomator_tager_send_keys(driver, 'resourceId("cn.smartinspection.combine:id/et_value").text("设计值")', 5, '3', 3)
