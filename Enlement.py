@@ -113,7 +113,7 @@ class operation:
             except Exception as e:
                 driver.swipe(int(width) / 2, int(height) / 2, int(width) / 2, int(height) / 8, duration=3000)
                 boss = boss + 1
-                operation.exit_is(driver , tager)
+                operation.exit_is(driver, tager, wait)
                 print("------------找不到目标:"+tager+",滚吧!+"+str(boss))
 
     def exit_is(driver , tager, wait):
