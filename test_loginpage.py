@@ -36,7 +36,6 @@ class TestClass:
         app_driver.find_element_by_android_uiautomator('text("截面尺寸")').click()
         app_driver.find_element_by_android_uiautomator('text("确定")').click()
         TouchAction(app_driver).tap(x=600, y=888).perform()
-        # app_driver.tap([(666,888),(777,884)],100)
         # app_driver.find_element_by_android_uiautomator('resourceId("cn.smartinspection.combine:id/pv_plan")').click()
         # app_driver.find_element_by_android_uiautomator('text("设计值")').click()
         # app_driver.find_element_by_android_uiautomator('text("设计值")').send_keys(3)

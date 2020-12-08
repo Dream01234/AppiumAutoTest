@@ -75,9 +75,9 @@ class operation:
         width = driver.get_window_size().get('width')
         height = driver.get_window_size().get('height')
         boss = 0
-        operation.exit_is(driver, tager, wait)
         while time > boss:
             try:
+                   operation.exit_is(driver, tager, wait)
                    if driver.find_element_by_android_uiautomator(tager):
                         driver.find_element_by_android_uiautomator(tager).click()
                         print("找到目标:"+tager)
@@ -85,7 +85,6 @@ class operation:
             except Exception as e:
                     driver.swipe(int(width) / 2, int(height) / 2, int(width) / 2, int(height) / 8, duration=3000)
                     boss = boss + 1
-                    operation.exit_is(driver, tager, wait)
                     print("-----------------找不到目标:"+tager+",滚吧!+"+str(boss))
                     # if boss == time - 1:
                     #     driver.get_screenshot_as_file('D:/screenshot/error.png')
@@ -103,9 +102,9 @@ class operation:
         width = driver.get_window_size().get('width')
         height = driver.get_window_size().get('height')
         boss = 0
-        operation.exit_is(driver, tager, wait)
         while time > boss:
             try:
+                operation.exit_is(driver, tager, wait)
                 if driver.find_element_by_android_uiautomator(tager):
                     driver.find_element_by_android_uiautomator(tager).send_keys(something)
                     print("找到目标:"+tager)
@@ -113,7 +112,6 @@ class operation:
             except Exception as e:
                 driver.swipe(int(width) / 2, int(height) / 2, int(width) / 2, int(height) / 8, duration=3000)
                 boss = boss + 1
-                operation.exit_is(driver, tager, wait)
                 print("------------找不到目标:"+tager+",滚吧!+"+str(boss))
 
     def exit_is(driver , tager, wait):

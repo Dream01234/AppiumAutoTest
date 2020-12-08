@@ -17,9 +17,7 @@ caps["ensureWebviewsHavePages"] = True
 
 driver = webdriver.Remote("http://localhost:4723/wd/hub", caps)
 
-el1 = driver.find_element_by_id("cn.smartinspection.combine:id/btn_go_to_login")
-el1.click()
-time.sleep(1)
+Enlement.operation.find_uiautomator_tager_click(driver, "cn.smartinspection.combine:id/btn_go_to_login", 5, 3)
 # el2 = driver.find_element_by_id("cn.smartinspection.combine:id/et_login_username")
 # el2.send_keys("kentestgrp10")
 Enlement.operation.find_uiautomator_tager_send_keys(driver ,'resourceId("cn.smartinspection.combine:id/et_login_username")', 5, 'kentestgrp10',3)
