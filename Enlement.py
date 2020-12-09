@@ -114,7 +114,7 @@ class operation:
                 boss = boss + 1
                 print("------------找不到目标:"+tager+",滚吧!+"+str(boss))
 
-    def exit_is(driver , tager, wait):
+    def element_exit_is(driver , tager, wait):
         """指定时间内检测元素是否存在
 
             driver:设备
