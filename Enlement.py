@@ -150,4 +150,10 @@ class operation:
             print("点击无效")
 
 
+    def photo(self,driver):
+        """拍照"""
+        driver.find_element_by_android_uiautomator('resourceId("cn.smartinspection.combine:id/iv_photo_item")').click()
+        time.sleep(1)
+        driver.find_element_by_android_uiautomator('resourceId("cn.smartinspection.combine:id/view_capture_button")').click()
+
 
