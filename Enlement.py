@@ -173,7 +173,7 @@ class operation:
         tager = 'resourceId("cn.smartinspection.combine:id/iv_photo_item")'
         while time > boss:
             try:
-                operation.exit_is(driver, tager, wait)
+                operation.element_exit_is(driver, tager, wait)
                 if driver.find_element_by_android_uiautomator(tager):
                     operation.photo(driver)
                     break
