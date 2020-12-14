@@ -147,13 +147,39 @@ class operation:
         try:
             TouchAction(driver).tap(x=x, y=y).perform()
         except Exception as e:
-            print("点击无效")
+            print("----------------点击无效")
 
 
-    def photo(self,driver):
+    def photo(driver):
         """拍照"""
-        driver.find_element_by_android_uiautomator('resourceId("cn.smartinspection.combine:id/iv_photo_item")').click()
-        time.sleep(1)
-        driver.find_element_by_android_uiautomator('resourceId("cn.smartinspection.combine:id/view_capture_button")').click()
+        try:
+            driver.find_element_by_android_uiautomator('resourceId("cn.smartinspection.combine:id/iv_photo_item")').click()
+            time.sleep(0.5)
+            #按下快门
+            driver.find_element_by_android_uiautomator('resourceId("cn.smartinspection.combine:id/view_capture_button")').click()
+            #点击确定
+            time.sleep(0.5)
+            driver.find_element_by_android_uiautomator('text("确定")').click()
+        except Exception as e:
+            print("-------------拍照失败")
+
+
+
+    def take_photo(driver, wait, time):
+        """集成拍照"""
+        width = driver.get_window_size().get('width')
+        height = driver.get_window_size().get('height')
+        boss = 0
+        tager = 'resourceId("cn.smartinspection.combine:id/iv_photo_item")'
+        while time > boss:
+            try:
+                operation.exit_is(driver, tager, wait)
+                if driver.find_element_by_android_uiautomator(tager):
+                    operation.photo(driver)
+                    break
+            except Exception as e:
+                driver.swipe(int(width) / 2, int(height) / 2, int(width) / 2, int(height) / 8, duration=3000)
+                boss = boss + 1
+                print("------------找不到目标:"+tager+",滚吧!+"+str(boss))
 
 
