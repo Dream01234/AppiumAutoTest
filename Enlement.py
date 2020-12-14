@@ -182,4 +182,14 @@ class operation:
                 boss = boss + 1
                 print("------------找不到目标:"+tager+",滚吧!+"+str(boss))
 
+    def find_uiautomator_tager_click2(driver, tager, wait):
+        try:
+            operation.element_exit_is(driver, tager, wait)
+
+            if driver.find_element_by_android_uiautomator(tager):
+                driver.find_element_by_android_uiautomator(tager).click()
+                print("找到目标:" + tager)
+        except Exception as e:
+            print("找不到该元素")
+
 
