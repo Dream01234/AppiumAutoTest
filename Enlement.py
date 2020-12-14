@@ -77,7 +77,7 @@ class operation:
         boss = 0
         while time > boss:
             try:
-                   operation.exit_is(driver, tager, wait)
+                   operation.element_exit_is(driver, tager, wait)
                    if driver.find_element_by_android_uiautomator(tager):
                         driver.find_element_by_android_uiautomator(tager).click()
                         print("找到目标:"+tager)
@@ -104,7 +104,7 @@ class operation:
         boss = 0
         while time > boss:
             try:
-                operation.exit_is(driver, tager, wait)
+                operation.element_exit_is(driver, tager, wait)
                 if driver.find_element_by_android_uiautomator(tager):
                     driver.find_element_by_android_uiautomator(tager).send_keys(something)
                     print("找到目标:"+tager)
@@ -193,3 +193,19 @@ class operation:
             print("找不到该元素")
 
 
+    def find_uiautomator_tager_send_keys2(driver, tager, something, wait):
+        """使用uiautomator根据tager输入文本
+
+               driver:设备
+               tager:目标元素
+               time:滑动次数
+               something: 输入文本内容
+               wait:等待时间(秒)
+            """
+        try:
+                operation.element_exit_is(driver, tager, wait)
+                if driver.find_element_by_android_uiautomator(tager):
+                    driver.find_element_by_android_uiautomator(tager).send_keys(something)
+                    print("找到目标:"+tager)
+        except Exception as e:
+                print("------------找不到目标:"+tager)
