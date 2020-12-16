@@ -1,5 +1,5 @@
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import datetime
 import time
@@ -16,7 +16,7 @@ class operation:
             while i < 10:
                 try:
                     WebDriverWait(driver, timeout).until(
-                        expected_conditions.presence_of_element_located((By.ID, name)),
+                        EC.presence_of_element_located((By.ID, name)),
                         message='not find this ID').click()
                     break
                 except Exception as e :
@@ -27,7 +27,7 @@ class operation:
             while i < 10:
                 try:
                     WebDriverWait(driver, timeout).until(
-                        expected_conditions.presence_of_element_located((By.XPATH, name)),
+                        EC.presence_of_element_located((By.XPATH, name)),
                         message='not find this xpath').click()
                     break
                 except Exception as e :
@@ -45,7 +45,7 @@ class operation:
             while i < 10:
                 try:
                     WebDriverWait(driver, timeout).until(
-                        expected_conditions.presence_of_element_located((By.ID, name)),
+                        EC.presence_of_element_located((By.ID, name)),
                         message='not find this ID').send_keys(something)
                     break
                 except Exception as e:
@@ -57,7 +57,7 @@ class operation:
             while i < 10:
                 try:
                     WebDriverWait(driver, timeout).until(
-                        expected_conditions.presence_of_element_located((By.XPATH, name)),
+                        EC.presence_of_element_located((By.XPATH, name)),
                         message='not find this xpath').send_keys(something)
                     break
                 except Exception as e:
@@ -152,14 +152,17 @@ class operation:
 
     def photo(driver):
         """拍照"""
+        iv_photo = 'resourceId("cn.smartinspection.combine:id/iv_photo_item")'
+        shutter = 'resourceId("cn.smartinspection.combine:id/view_capture_button")'
+        confirm = 'text("确定")'
         try:
-            driver.find_element_by_android_uiautomator('resourceId("cn.smartinspection.combine:id/iv_photo_item")').click()
+            driver.find_element_by_android_uiautomator(iv_photo).click()
             time.sleep(0.5)
             #按下快门
-            driver.find_element_by_android_uiautomator('resourceId("cn.smartinspection.combine:id/view_capture_button")').click()
+            driver.find_element_by_android_uiautomator(shutter).click()
             #点击确定
             time.sleep(0.5)
-            driver.find_element_by_android_uiautomator('text("确定")').click()
+            driver.find_element_by_android_uiautomator(confirm).click()
         except Exception as e:
             print("-------------拍照失败")
 
@@ -209,3 +212,50 @@ class operation:
                     print("找到目标:"+tager)
         except Exception as e:
                 print("------------找不到目标:"+tager)
+
+
+    def access_visit_permissions(driver):
+        """登录时获取访问权限"""
+        i = 0
+        while i < 5:
+            try:
+                operation.find_uiautomator_tager_click(driver, 'text("始终允许")', 3, 3)
+            except Exception as e:
+                print("---------------------获取权限失败")
+            i = i + 1
+
+    def wait_loading(driver, tager):
+        """等待同步加载(没有toast情况下)
+
+        driver:设备
+        tager:同步检测的文本
+        """
+        i = 0.5
+        boss = True
+        while boss:
+            try:
+                if driver.find_element_by_android_uiautomator(tager):
+                    time.sleep(i)
+            except Exception as e:
+                print("同步成功")
+                boss = False
+
+    def is_toast_exist(driver, text, timeout=30, poll_frequency=0.5):
+        """检测toast是否存在
+
+        driver：设备
+        text：toast弹框内容
+        timeout：超时时间
+        poll_frequency：间隔查询时间
+        """
+        try:
+            message_loc = ("xpath", "//*[contains(@text,'%s')]" % text)
+            WebDriverWait(driver, timeout, poll_frequency).until(EC.presence_of_element_located(message_loc))
+            print("同步任务成功")
+            return True
+        except:
+            print("同步任务出错或者有什么别的麻烦吧")
+            return False
+
+
+
