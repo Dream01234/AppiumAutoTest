@@ -8,6 +8,7 @@ class Setting:
     caps["appPackage"] = "cn.smartinspection.combine"
     caps["appActivity"] = "cn.smartinspection.login.ui.activity.WelcomeGuideActivity"
     caps["ensureWebviewsHavePages"] = True
+    caps["automationName"] = "Uiautomator2"
     driver = webdriver.Remote("http://localhost:4723/wd/hub",caps)
 
     caps2 = {}
@@ -17,5 +18,6 @@ class Setting:
     caps2["appPackage"] = "cn.smartinspection.combine"
     caps2["appActivity"] = "cn.smartinspection.login.ui.activity.CustomSplashActivity"
     caps2["ensureWebviewsHavePages"] = True
+    caps["automationName"] = "Uiautomator2"
     driver2 = webdriver.Remote("http://localhost:4723/wd/hub",caps2)
 
