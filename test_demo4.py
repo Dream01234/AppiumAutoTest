@@ -9,15 +9,15 @@ from selenium.webdriver.common.by import By
 
 caps = {}
 caps["platformName"] = "Android"
-caps["platformVersion"] = "9"
-caps["deviceName"] = "MHA_AL00"
+caps["platformVersion"] = "7.1.2"
+caps["deviceName"] = "MI_9"
 caps["appPackage"] = "cn.smartinspection.combine"
-caps["appActivity"] = "cn.smartinspection.login.ui.activity.CustomSplashActivity"
+caps["appActivity"] = "cn.smartinspection.login.ui.activity.WelcomeGuideActivity"
 caps["ensureWebviewsHavePages"] = True
 caps["automationName"] = "Uiautomator2"
 driver = webdriver.Remote("http://localhost:4723/wd/hub",caps)
 
-Enlement.operation.access_visit_permissions(driver)
+# Enlement.operation.access_visit_permissions(driver)
 
 Enlement.operation.find_uiautomator_tager_click(driver, 'text("马上登录")', 3, 3)
 Enlement.operation.find_uiautomator_tager_send_keys(driver, 'text("请输入用户名")', 3, 'kentestgrp10', 3)

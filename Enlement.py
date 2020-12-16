@@ -254,7 +254,7 @@ class operation:
             print("同步任务成功")
             return True
         except:
-            print("同步任务出错或者有什么别的麻烦吧")
+            print("--------------同步任务出错或者有什么别的麻烦吧")
             return False
 
 
