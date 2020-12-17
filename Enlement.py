@@ -215,7 +215,7 @@ class operation:
 
 
     def access_visit_permissions(driver):
-        """登录时获取访问权限"""
+        """登录时获取访问权限(真机调试用)"""
         i = 0
         while i < 5:
             try:
@@ -251,10 +251,10 @@ class operation:
         try:
             message_loc = ("xpath", "//*[contains(@text,'%s')]" % text)
             WebDriverWait(driver, timeout, poll_frequency).until(EC.presence_of_element_located(message_loc))
-            print("同步任务成功")
+            print("成功")
             return True
         except:
-            print("--------------同步任务出错或者有什么别的麻烦吧")
+            print("--------------任务失败或者有什么别的麻烦吧")
             return False
 
 
