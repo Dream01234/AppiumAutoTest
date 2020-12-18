@@ -224,11 +224,12 @@ class operation:
                 print("---------------------获取权限失败")
             i = i + 1
 
-    def wait_loading(driver, tager):
+    def wait_loading(driver, tager, b_tager):
         """等待同步加载(没有toast情况下)
 
         driver:设备
-        tager:同步检测的文本
+        tager:同步检测的过程中的文本
+        b_tager:同步检测前的文本
         """
         i = 0.5
         boss = True
@@ -237,8 +238,12 @@ class operation:
                 if driver.find_element_by_android_uiautomator(tager):
                     time.sleep(i)
             except Exception as e:
-                print("同步成功")
-                boss = False
+                if driver.find_element_by_android_uiautomator(b_tager):
+                    print("同步成功")
+                    boss = False
+                else:
+                    print("同步失败")
+                    boss = False
 
     def is_toast_exist(driver, text, timeout=30, poll_frequency=0.5):
         """检测toast是否存在
