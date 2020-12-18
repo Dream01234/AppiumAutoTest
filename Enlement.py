@@ -238,12 +238,13 @@ class operation:
                 if driver.find_element_by_android_uiautomator(tager):
                     time.sleep(i)
             except Exception as e:
-                if driver.find_element_by_android_uiautomator(b_tager):
-                    print("同步成功")
-                    boss = False
-                else:
-                    print("同步失败")
-                    boss = False
+                try:
+                    if driver.find_element_by_android_uiautomator(b_tager):
+                        print("同步成功")
+                        boss = False
+                except Exception as e:
+                        print("同步失败")
+                        boss = False
 
     def is_toast_exist(driver, text, timeout=30, poll_frequency=0.5):
         """检测toast是否存在
