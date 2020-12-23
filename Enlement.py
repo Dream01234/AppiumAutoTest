@@ -158,9 +158,7 @@ class operation:
         try:
             driver.find_element_by_android_uiautomator(iv_photo).click()
             time.sleep(0.5)
-            #按下快门
             driver.find_element_by_android_uiautomator(shutter).click()
-            #点击确定
             time.sleep(0.5)
             driver.find_element_by_android_uiautomator(confirm).click()
         except Exception as e:
