@@ -231,6 +231,3 @@ class operation:
         except:
             print("--------------任务失败或者有什么别的麻烦吧")
             return False
-
-
-
