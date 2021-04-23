@@ -3,6 +3,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import datetime
 import time
+import xlrd
+import os
 from appium.webdriver.common.touch_action import TouchAction
 
 class operation:
@@ -231,3 +233,16 @@ class operation:
         except:
             print("--------------任务失败或者有什么别的麻烦吧")
             return False
+
+    def get_excel_value(sheet_name):
+        """execl读取操作"""
+        filePath = os.path.split(os.path.dirname(__file__))[0]
+        cls = []
+        excel_path = filePath + '/data/testCase.xls'
+        workbook = xlrd.open_workbook(excel_path)
+        sheet = workbook.sheet_by_name(sheet_name)
+        nrows = sheet.nrows
+        for i in range(nrows):
+            if sheet.row_values(i)[0] != 'case_Name':
+                cls.append(sheet.row_values(i))
+        return cls
