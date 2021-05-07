@@ -125,8 +125,8 @@ def cmpHash(hash1, hash2):
 # img1 = cv2.imread('D:/image/t1.png')  # 39------33---18--------0.58
 # img2 = cv2.imread('D:/image/t3.png')
 
-img1 = cv2.imread('D:/image/login01.jpg')  # 14------19---10--------0.70
-img2 = cv2.imread('D:/image/login02.jpg')
+img1 = cv2.imread('D:/image/sai01.jpg')  # 14------19---10--------0.70
+img2 = cv2.imread('D:/image/sai02.jpg')
 
 hash1 = aHash(img1)
 hash2 = aHash(img2)
