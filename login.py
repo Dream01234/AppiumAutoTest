@@ -1,3 +1,9 @@
+from appium import webdriver
+import Device
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+
 class Loginel:
     "马上登录"
     loginNow = 'cn.smartinspection.combine:id/btn_go_to_login'
@@ -25,3 +31,26 @@ class Loginel:
 
     "手机验证码登录"
     code = 'cn.smartinspection.combine:id/tv_reset_password'
+
+
+
+    def sendUsename(self,username):
+        driver = Device.Setting.driver
+        timeout = 3
+        WebDriverWait(driver, timeout).until(
+            EC.presence_of_element_located((By.ID,self.user_name)),
+            message='not find this ID').clear()
+        WebDriverWait(driver, timeout).until(
+            EC.presence_of_element_located((By.ID, self.user_name)),
+            message='not find this ID').send_keys(username)
+
+    def sendPwd(self,pwd):
+        driver = Device.Setting.driver
+        timeout = 3
+        WebDriverWait(driver, timeout).until(
+            EC.presence_of_element_located((By.ID, self.pwd)),
+            message='not find this ID').clear()
+        WebDriverWait(driver, timeout).until(
+            EC.presence_of_element_located((By.ID, self.pwd)),
+            message='not find this ID').send_keys(pwd)
+
