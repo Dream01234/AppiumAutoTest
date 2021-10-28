@@ -1,5 +1,4 @@
 import login
-
 class loginpage_control:
 
     "登录智建云(不带企业编码)"
