@@ -1,8 +1,8 @@
-# from appium import webdriver
-# import Device
-# from selenium.webdriver.support.ui import WebDriverWait
-# from selenium.webdriver.support import expected_conditions as EC
-# from selenium.webdriver.common.by import By
+from appium import webdriver
+import Device
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
 
 class Loginel:
     "马上登录"
@@ -34,31 +34,84 @@ class Loginel:
 
     test = '123'
 
+    "输入用户名"
+    def sendUsename(self,username):
+        driver = Device.Setting.driver
+        timeout = 3
+        WebDriverWait(driver, timeout).until(
+            EC.presence_of_element_located((By.ID,self.user_name)),
+            message='not find this ID').clear()
+        WebDriverWait(driver, timeout).until(
+            EC.presence_of_element_located((By.ID, self.user_name)),
+            message='not find this ID').send_keys(username)
+    "输入密码"
+    def sendPwd(self,password):
+        driver = Device.Setting.driver
+        timeout = 3
+        WebDriverWait(driver, timeout).until(
+            EC.presence_of_element_located((By.ID, self.pwd)),
+            message='not find this ID').clear()
+        WebDriverWait(driver, timeout).until(
+            EC.presence_of_element_located((By.ID, self.pwd)),
+            message='not find this ID').send_keys(password)
 
-    # def sendUsename(self,username):
-    #     driver = Device.Setting.driver
-    #     timeout = 3
-    #     WebDriverWait(driver, timeout).until(
-    #         EC.presence_of_element_located((By.ID,self.user_name)),
-    #         message='not find this ID').clear()
-    #     WebDriverWait(driver, timeout).until(
-    #         EC.presence_of_element_located((By.ID, self.user_name)),
-    #         message='not find this ID').send_keys(username)
-    #
-    # def sendPwd(self,pwd):
-    #     driver = Device.Setting.driver
-    #     timeout = 3
-    #     WebDriverWait(driver, timeout).until(
-    #         EC.presence_of_element_located((By.ID, self.pwd)),
-    #         message='not find this ID').clear()
-    #     WebDriverWait(driver, timeout).until(
-    #         EC.presence_of_element_located((By.ID, self.pwd)),
-    #         message='not find this ID').send_keys(pwd)
+    "输入企业编码"
+    def sendBusinesscode(self,code):
+        driver = Device.Setting.driver
+        timeout = 3
+        WebDriverWait(driver, timeout).until(
+            EC.presence_of_element_located((By.ID, self.pwd)),
+            message='not find this ID').clear()
+        WebDriverWait(driver, timeout).until(
+            EC.presence_of_element_located((By.ID, self.pwd)),
+            message='not find this ID').send_keys(code)
 
-    def test2(self):
+    "勾选隐私协议"
+    def checkAgree(self):
+        driver = Device.Setting.driver
+        timeout = 3
+        WebDriverWait(driver, timeout).until(
+            EC.presence_of_element_located((By.ID, self.agree)),
+            message='not find this ID').click()
 
-        print(self.test)
+    "点击登录按钮"
+    def clickLoginButoon(self):
+        driver = Device.Setting.driver
+        timeout = 3
+        WebDriverWait(driver, timeout).until(
+            EC.presence_of_element_located((By.ID, self.loginButoon)),
+            message='not find this ID').click()
 
-if __name__ == '__main__':
-    t = Loginel()
-    t.test2()
+    "点击注册"
+    def clickRegister(self):
+        driver = Device.Setting.driver
+        timeout = 3
+        WebDriverWait(driver, timeout).until(
+            EC.presence_of_element_located((By.ID, self.register)),
+            message='not find this ID').click()
+
+    "点击重置密码"
+    def clickResetpwd(self):
+        driver = Device.Setting.driver
+        timeout = 3
+        WebDriverWait(driver, timeout).until(
+            EC.presence_of_element_located((By.ID, self.reset_pwd)),
+            message='not find this ID').click()
+
+    "点击手机验证码登录"
+    def clickCode(self):
+        driver = Device.Setting.driver
+        timeout = 3
+        WebDriverWait(driver, timeout).until(
+            EC.presence_of_element_located((By.ID, self.code)),
+            message='not find this ID').click()
+
+
+
+#     def test2(self):
+#
+#         print(self.test)
+#
+# if __name__ == '__main__':
+#     t = Loginel()
+#     t.test2()
