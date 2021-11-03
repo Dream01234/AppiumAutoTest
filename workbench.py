@@ -29,9 +29,10 @@ class cloudworkbench:
         driver.find_element_by_android_uiautomator(self.organization).click()
 
     "点击模块"
-    def clickmodule(self):
+    def clickmodule(self,module):
         driver = Device.Setting.driver
-        driver.find_element_by_android_uiautomator(self.module).click()
+        name = 'text(' + module + ')'
+        driver.find_element_by_android_uiautomator(name).click()
 
     "点击更多"
     def clickmore(self):
@@ -50,6 +51,14 @@ class cloudworkbench:
         WebDriverWait(driver, timeout).until(
             EC.presence_of_element_located((By.ID, self.find)),
             message='not find this ID').click()
+
+    "输入模块名"
+    def sendkey(self,module_name):
+        driver = Device.Setting.driver
+        timeout = 3
+        WebDriverWait(driver, timeout).until(
+            EC.presence_of_element_located((By.ID, self.find)),
+            message='not find this ID').send_keys(module_name)
 
     "输入查找组织名字"
     def senkorganization(self,name):
