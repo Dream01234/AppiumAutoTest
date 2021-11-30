@@ -5,23 +5,9 @@ from selenium.webdriver.common.by import By
 
 class picture:
 
-    "全部区域"
-    area = 'text("全部区域")'
-
-    "测量"
-    measure = 'text("测量")'
-
-    "爆点清单"
-    bo_list = 'text("爆点清单")'
-
-    "爆点"
-    bo_point = 'text("爆点")'
 
     "点击空白处新增测量点"
     null_point = 'cn.smartinspection.combine:id/cb_click_blank_to_add_measure_zone'
-
-    "选择测量指标"
-    indicators = 'text("选择测量指标")'
 
 
     "点击全部区域"
