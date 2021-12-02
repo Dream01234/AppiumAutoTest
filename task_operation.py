@@ -1,6 +1,4 @@
 import task
-import Device
-from appium.webdriver.common.touch_action import TouchAction
 class picture_control:
 
     "选择区域"
@@ -24,6 +22,6 @@ class picture_control:
         t.clickindicators(indicators)
 
     "点击图纸"
-    def clickpir(self,x,y):
-        driver = Device.Setting.driver
-        TouchAction(driver).tap(x=x, y=y).perform()
+    def selcetpront(self,x,y):
+        t = task.picture
+        t.clickpir(x,y)
