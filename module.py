@@ -3,6 +3,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
+"----模块类"
 class cloudmodule:
 
     "展开"
@@ -23,7 +24,7 @@ class cloudmodule:
     "选择项目"
     def clickproject(self,project_name):
         driver = Device.Setting.driver
-        name = 'text(' + project_name + ')'
+        name = '\'text("' + project_name + '")\''
         driver.find_element_by_android_uiautomator(name).click()
 
     "点击全部同步"
@@ -37,12 +38,12 @@ class cloudmodule:
     "点击任务同步"
     def clicktask(self,father,child):
         driver = Device.Setting.driver
-        task = 'text(' + father + ').fromParent(text(' + child + '))'
+        task = '\'text("' + father + '").fromParent(text("' + child + '"))\''
         driver.find_element_by_android_uiautomator(task).click()
 
     "点击任务"
     def clicktask_name(self,name):
         driver = Device.Setting.driver
-        name = 'text(' + name + ')'
+        name = '\'text("' + name + '")\''
         driver.find_element_by_android_uiautomator(name).click()
 

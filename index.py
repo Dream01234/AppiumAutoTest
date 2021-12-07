@@ -2,7 +2,7 @@ import Device
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-
+"----首页类"
 class cloudIndex:
 
     "免费注册"

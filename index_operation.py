@@ -1,4 +1,5 @@
 import index
+"---首页操作类"
 class index_control:
 
     "同意声明"

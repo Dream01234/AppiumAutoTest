@@ -4,6 +4,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
+"----登录类"
 class Loginel:
     "马上登录"
     loginNow = 'cn.smartinspection.combine:id/btn_go_to_login'

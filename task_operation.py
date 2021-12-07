@@ -1,4 +1,6 @@
 import task
+
+"---任务操作类"
 class picture_control:
 
     "选择区域"

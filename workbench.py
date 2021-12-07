@@ -3,6 +3,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
+"---工作台类"
 class cloudworkbench:
 
     "组织"
@@ -31,7 +32,7 @@ class cloudworkbench:
     "点击模块"
     def clickmodule(self,module):
         driver = Device.Setting.driver
-        name = 'text(' + module + ')'
+        name = 'text("' + module + '")'
         driver.find_element_by_android_uiautomator(name).click()
 
     "点击更多"

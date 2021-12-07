@@ -4,6 +4,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from appium.webdriver.common.touch_action import TouchAction
 
+"-----任务类"
 class picture:
 
 
@@ -14,13 +15,13 @@ class picture:
     "点击全部区域"
     def clickarea(self,area):
         driver = Device.Setting.driver
-        name = 'text(' + area + ')'
+        name = '\'text("' + area + '")\''
         driver.find_element_by_android_uiautomator(name).click()
 
     "点击测量"
     def clickmeasure(self,measure):
         driver = Device.Setting.driver
-        name = 'text(' + measure + ')'
+        name = '\'text("' + measure + '")\''
         driver.find_element_by_android_uiautomator(name).click()
 
     "点击空白处按钮"
@@ -34,7 +35,7 @@ class picture:
     "点击选择测量指标"
     def clickindicators(self,indicators):
         driver = Device.Setting.driver
-        name = 'text(' + indicators + ')'
+        name = '\'text("' + indicators + '")\''
         driver.find_element_by_android_uiautomator(name).click()
 
     "点击图纸某处"
