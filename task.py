@@ -87,6 +87,12 @@ class picture:
         name = '\'text("请选择")\''
         driver.find_element_by_android_uiautomator(name).click()
 
+    "点击 爆点整改"
+    def clickadjust(self):
+        driver = Device.Setting.driver
+        name = '\'text("爆点整改")\''
+        driver.find_element_by_android_uiautomator(name).click()
+
     "点击 新增检查项"
     def clicknewitem(self):
         driver = Device.Setting.driver
