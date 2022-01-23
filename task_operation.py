@@ -27,3 +27,9 @@ class picture_control:
     def selcetpront(self,x,y):
         t = task.picture
         t.clickpir(x,y)
+
+    "点击空白处新增测量点"
+    def open(self):
+        t = task.picture
+        t.click_null_point()
+

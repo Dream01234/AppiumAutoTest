@@ -69,6 +69,12 @@ class picture:
         name = '\'text("删除")\''
         driver.find_element_by_android_uiautomator(name).click()
 
+    "点击 清空"
+    def clickempty(self):
+        driver = Device.Setting.driver
+        name = '\'text("清空")\''
+        driver.find_element_by_android_uiautomator(name).click()
+
     "点击 保存"
     def clicksave(self):
         driver = Device.Setting.driver
