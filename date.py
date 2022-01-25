@@ -13,8 +13,8 @@ class dates:
         name = '\'text("' + date + '")\''
         driver.find_element_by_android_uiautomator(name).click()
 
-    "点击 清楚日期"
+    "点击 清除日期"
     def clickclear(self):
         driver = Device.Setting.driver
-        name = '\'text("清楚日期")\''
+        name = '\'text("清除日期")\''
         driver.find_element_by_android_uiautomator(name).click()
