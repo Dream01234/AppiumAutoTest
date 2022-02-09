@@ -15,14 +15,14 @@ class index_control:
     "允许访问"
     def allow(self):
         t = index.cloudIndex()
-        for i in 2 :
+        for i in range(2) :
             t.click_allow()
 
     "同意授权并点击马上登录"
     def click_loginNow(self):
         t = index.cloudIndex()
         t.click_agree()
-        for i in 2 :
+        for i in range(2) :
             t.click_allow()
         t.click_btngotologin()
 
@@ -30,6 +30,6 @@ class index_control:
     def click_freeregister(self):
         t = index.cloudIndex()
         t.click_agree()
-        for i in 2:
+        for i in range(2):
             t.click_allow()
         t.click_btnregister()

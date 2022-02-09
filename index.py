@@ -6,10 +6,10 @@ from selenium.webdriver.common.by import By
 class cloudIndex:
 
     "免费注册"
-    btn_register = 'cn.smartinspection.combine:id/btn_register'
+    btn_register = 'text("免费注册")'
 
     "马上登录"
-    btn_go_to_login = 'cn.smartinspection.combine:id/btn_go_to_login'
+    btn_go_to_login = 'text("马上登录")'
 
     "同意"
     agree = 'text("同意")'
@@ -18,7 +18,7 @@ class cloudIndex:
     no = 'text("暂不使用")'
 
     "始终允许"
-    allow = 'text("始终使用")'
+    allow = 'text("允许")'
 
     "禁止"
     ban = 'text("禁止")'
@@ -46,15 +46,9 @@ class cloudIndex:
     "点击免费注册"
     def click_btnregister(self):
         driver = Device.Setting.driver
-        timeout = 3
-        WebDriverWait(driver, timeout).until(
-            EC.presence_of_element_located((By.ID, self.btn_register)),
-            message='not find this ID').click()
+        driver.find_element_by_android_uiautomator(self.btn_register).click()
 
     "点击马上登录"
     def click_btngotologin(self):
         driver = Device.Setting.driver
-        timeout = 3
-        WebDriverWait(driver, timeout).until(
-            EC.presence_of_element_located((By.ID, self.btn_go_to_login)),
-            message='not find this ID').click()
+        driver.find_element_by_android_uiautomator(self.btn_go_to_login).click()
