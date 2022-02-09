@@ -217,7 +217,7 @@ class operation:
                         print("同步失败")
                         boss = False
 
-    def is_toast_exist(driver, text, timeout=30, poll_frequency=0.5):
+    def is_toast_exist(driver, text, timeout=300, poll_frequency=0.5):
         """检测toast是否存在
 
         driver：设备

@@ -19,7 +19,5 @@ class workbench_control:
     "查询模块并选择模块"
     def findmodule(self,module_name):
         t = workbench.cloudworkbench()
-        t.clickfind()
-        t.sendkey(module_name)
-        t.clickmodule(module_name)
+        t.swipefind(module_name)
 

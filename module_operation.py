@@ -19,6 +19,12 @@ class task_control:
         t = module.cloudmodule()
         t.clicktask_name(name)
 
+    "点击全部同步"
+    def selectall(self):
+        t = module.cloudmodule()
+        t.clicksynchronous()
+        t.wait_loading()
+        t.is_toast_exist("任务同步成功")
 
 
 
