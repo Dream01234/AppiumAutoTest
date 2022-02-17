@@ -10,9 +10,9 @@ class task_control:
         t.clickproject(project_name)
 
     "同步任务"
-    def Synchronization_task(self,first,second):
+    def Synchronization_task(self,name):
         t = module.cloudmodule()
-        t.clicktask(first,second)
+        t.clicktask(name)
 
     "点击任务"
     def selecttask(self,name):

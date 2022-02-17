@@ -81,7 +81,7 @@ class cloudworkbench:
         driver.find_element_by_android_uiautomator(self.retu).click()
 
     "滚动寻找模块并点击模块"
-    def swipefind(self,name):
+    def swipefindclick(self,name):
         driver = Device.Setting.driver
         width = driver.get_window_size().get('width')
         height = driver.get_window_size().get('height')
@@ -97,6 +97,28 @@ class cloudworkbench:
                 driver.swipe(int(width) / 2, int(height) / 2, int(width) / 2, int(height) / 8, duration=3000)
                 boss = boss + 1
                 print("-----------------找不到目标:" +tager + ",滚吧!+" + str(boss))
+
+    "滚动寻找模块"
+    def swipefind(self,name):
+        driver = Device.Setting.driver
+        width = driver.get_window_size().get('width')
+        height = driver.get_window_size().get('height')
+        tager = 'text("' + name + '")'
+        boss = 0
+        while 5 > boss:
+            try:
+                if driver.find_element_by_android_uiautomator(tager):
+                    print("找到目标:" + tager)
+                    break
+            except Exception as e:
+                driver.swipe(int(width) / 2, int(height) / 2, int(width) / 2, int(height) / 8, duration=3000)
+                boss = boss + 1
+                print("-----------------找不到目标:" +tager + ",滚吧!+" + str(boss))
+
+    "确认弹框"
+    def no(self):
+        driver = Device.Setting.driver
+        driver.find_element_by_android_uiautomator('text("取消")').click()
 
 
 

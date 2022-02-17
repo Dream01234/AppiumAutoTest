@@ -19,5 +19,10 @@ class workbench_control:
     "查询模块并选择模块"
     def findmodule(self,module_name):
         t = workbench.cloudworkbench()
-        t.swipefind(module_name)
+        t.swipefindclick(module_name)
+
+    "取消更新"
+    def noupdate(self):
+        t = workbench.cloudworkbench()
+        t.no()
 

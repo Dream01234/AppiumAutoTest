@@ -34,9 +34,10 @@ class cloudmodule:
         driver.find_element_by_android_uiautomator(self.synchronous).click()
 
     "点击任务同步"
-    def clicktask(self,father,child):
+    def clicktask(self,name):
         driver = Device.Setting.driver
-        task = 'text("' + father + '").fromParent(text("' + child + '"))'
+        task = 'resourceId("cn.smartinspection.combine:id/ay5").fromParent(text("' + name + '"))'
+        # task = 'text("' + father + '").fromParent(text("' + child + '"))'
         driver.find_element_by_android_uiautomator(task).click()
 
     "点击任务"
