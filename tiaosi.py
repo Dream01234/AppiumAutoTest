@@ -1,4 +1,4 @@
-
+#调试python调用jemter用
 result_file = 'D:\\apache-jmeter-5.3\\result_jtl\\20201119_120128\\test.jtl'
 
 def get_result(result_file):
