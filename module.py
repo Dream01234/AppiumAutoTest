@@ -25,7 +25,7 @@ class cloudmodule:
     "选择项目"
     def clickproject(self,project_name):
         driver = Device.Setting.driver
-        name = '\'text("' + project_name + '")\''
+        name = 'text("' + project_name + '")'
         driver.find_element_by_android_uiautomator(name).click()
 
     "点击全部同步"

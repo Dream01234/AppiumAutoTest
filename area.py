@@ -25,17 +25,17 @@ class district:
     "选择指定楼栋"
     def findbuilding(self,buildingname):
         driver = Device.Setting.driver
-        name = '\'text("' + buildingname + '")\''
+        name = 'text("' + buildingname + '")'
         driver.find_element_by_android_uiautomator(name).click()
 
     "选择指定楼层"
     def findfloor(self,floorname):
         driver = Device.Setting.driver
-        name = '\'text("' + floorname + '")\''
+        name = 'text("' + floorname + '")'
         driver.find_element_by_android_uiautomator(name).click()
 
     "选择-选择本级"
     def findthis_level(self,name):
         driver = Device.Setting.driver
-        level = '\'text("' + name + '").fromParent(text("选择本级"))\''
+        level = 'text("' + name + '").fromParent(text("选择本级"))'
         driver.find_element_by_android_uiautomator(level).click()
