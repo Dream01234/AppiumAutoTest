@@ -1,5 +1,5 @@
 #调试python调用jemter用
-result_file = 'D:\\apache-jmeter-5.3\\result_jtl\\20201119_120128\\test.jtl'
+result_file = 'D:\\apache-jmeter-5.3\\result_jtl\\20201119_120128\\result.jtl'
 
 def get_result(result_file):
     failcount = 0
@@ -25,11 +25,11 @@ def get_result(result_file):
             if linelist[7] == 'false':
                 count = count + 1
                 if count == 1:
-                    first_fail = "  首个失败请求:" + linelist[2] + linelist[13] + '\n' + linelist[8]
+                    first_fail = "  首个失败请求:" + linelist[2] + linelist[13] + '\n' + linelist[4]
                 if count == 2:
-                    second_fail = "  第二个失败请求:" + linelist[2] + linelist[13] + '\n' + linelist[8]
+                    second_fail = "  第二个失败请求:" + linelist[2] + linelist[13] + '\n' + linelist[4]
                 if count == 3:
-                    third_fail = "  第三个失败请求:" + linelist[2] + linelist[13] + '\n' + linelist[8]
+                    third_fail = "  第三个失败请求:" + linelist[2] + linelist[13] + '\n' + linelist[4]
                     break
 
     if failcount > 0:
