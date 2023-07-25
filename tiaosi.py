@@ -1,4 +1,6 @@
 #调试python调用jemter用
+import datetime
+import os
 result_file = 'D:\\apache-jmeter-5.3\\result_jtl\\20201119_120128\\result.jtl'
 
 def get_result(result_file):
@@ -16,6 +18,7 @@ def get_result(result_file):
             linelist = line.split(',')
             if linelist[7] == 'false':
                 failcount = failcount + 1
+                save(linelist[2],linelist[4])
                 # last_fail = linelist[2]+linelist[13]
             if linelist[7] == 'true':
                 successcount = successcount + 1
@@ -41,6 +44,20 @@ def get_result(result_file):
 
     return result_msg, result
 
+#存储结果
+def save(name,check_result):
+    #判断文件存在否，不存在则新建并写入数据
+    file_path = "D:\\1.txt"
+    if os.path.exists(file_path):
+        with open(file_path,'a',encoding='utf-8') as f:
+                now = datetime.datetime.now()
+                f.writelines([format(now),'----',name,'---',check_result])
+                f.writelines("\n")
+    else:
+        with open(file_path,'w',encoding='utf-8')as f:
+            now = datetime.datetime.now()
+            f.writelines([format(now),'----',name, '---', check_result])
+            f.writelines("\n")
 
 if __name__ == '__main__':
         result_msg,result = get_result(result_file)
