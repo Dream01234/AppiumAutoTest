@@ -42,6 +42,7 @@ def get_result(result_file):
         result_msg = '测试结果通过,成功请求数：' + str(successcount)
         result = 2
 
+
     return result_msg, result
 
 #存储结果
@@ -60,5 +61,5 @@ def save(name,check_result):
             f.writelines("\n")
 
 if __name__ == '__main__':
-        result_msg,result = get_result(result_file)
+        result_msg,result= get_result(result_file)
         print(result_msg)
