@@ -1,4 +1,9 @@
 #统计错误问题数
+import os
+import xlwt
+import xlrd
+from xlutils.copy import copy
+import datetime
 result_file = 'D:\\apache-jmeter-5.3\\result_jtl\\20201119_120128\\D__1.txt'
 
 #统计报错总数
@@ -7,8 +12,8 @@ def stats(file_path):
         line_count = 0
         for line in f:
             line_count += 1
-
     return  line_count
+
 #读取txt文档特定列，并分类统计
 def feilei(result_file):
     with open(result_file, 'r', encoding='utf-8') as filehandle:
@@ -27,9 +32,35 @@ def feilei(result_file):
                     word_count[word] = 1
                 else:
                     word_count[word] += 1
-
+    #统计并输出
     for word, count in word_count.items():
         print(f"{word}:{count}")
 
+
+#保存数据到excel文件
+def save(name,pro):
+    #判断文件存在否，不存在则新建并尾行写入数据
+    file_path = 'D:\\diyige.xlsx'
+    if os.path.exists(file_path):
+        wb = xlrd.open_workbook(file_path,formatting_info=True)   #打开xlsx文件
+        sheet1 = wb.sheet_by_index(0)   #获取第一个工作薄
+        nrows = sheet1.nrows  #获取非空行数
+        newbook = copy(wb)  #复制原来数据
+        newsheet = newbook.get_sheet(0)  #获取第一个工作薄
+        time = datetime.datetime.now()
+        newsheet.write(nrows, 0, time)   #写入数据
+        newsheet.write(nrows, 1, name)
+        newsheet.write(nrows, 2, pro)
+        newbook.save(file_path)   #保存文件内容
+    else:
+        wb = xlwt.Workbook()  #创建对象
+        sh = wb.add_sheet('错误记录')  #创建一个sheet叫 第一个
+        sh.write(0, 0,'时间')
+        sh.write(0, 1, '表单名')
+        sh.write(0, 2, '响应结果')
+        wb.save(file_path)
+
+
+
 if __name__ == '__main__':
-        word= feilei(result_file)
+        save()
