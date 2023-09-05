@@ -38,7 +38,7 @@ def feilei(result_file):
 
 
 #保存数据到excel文件
-def save(name,pro):
+def save(name,pro,result):
     #判断文件存在否，不存在则新建并尾行写入数据
     file_path = 'D:\\diyige.xlsx'
     if os.path.exists(file_path):
@@ -51,15 +51,23 @@ def save(name,pro):
         newsheet.write(nrows, 0, time)   #写入数据
         newsheet.write(nrows, 1, name)
         newsheet.write(nrows, 2, pro)
+        newsheet.write(nrows, 3, result)
         newbook.save(file_path)   #保存文件内容
     else:
-        wb = xlwt.Workbook()  #创建对象
-        sh = wb.add_sheet('错误记录')  #创建一个sheet叫 第一个
-        sh.write(0, 0,'时间')
+        wb = xlwt.Workbook()  # 创建对象
+        sh = wb.add_sheet('错误记录')  # 创建一个sheet叫 第一个
+        sh.write(0, 0, '时间')
         sh.write(0, 1, '表单名')
         sh.write(0, 2, '响应结果')
-        wb.save(file_path)
-
+        sh.write(0, 3, '断言失败原因')
+        style = xlwt.XFStyle()
+        style.num_format_str = 'YY/M/D h:mm'
+        time = datetime.datetime.now()  # 写入数据时间
+        sh.write(1, 0, time, style)  # 写入数据
+        sh.write(1, 1, name)
+        sh.write(1, 2, pro)
+        sh.write(1, 3, result)
+        wb.save(file_path)  # 保存文件内容
 
 
 if __name__ == '__main__':
