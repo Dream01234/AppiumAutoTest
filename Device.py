@@ -3,7 +3,7 @@ from appium import webdriver
 class Setting:
     caps = {}
     caps["platformName"] = "Android"
-    caps["platformVersion"] = "10"
+    caps["platformVersion"] = "12"
     caps["deviceName"] = "nova 8"
     caps["appPackage"] = "cn.smartinspection.combine"
     caps["appActivity"] = "cn.smartinspection.login.ui.activity.CustomSplashActivity"

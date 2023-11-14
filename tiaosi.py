@@ -21,8 +21,8 @@ def get_result(result_file):
             linelist = line.split(',')
             if linelist[7] == 'false':
                 failcount = failcount + 1
-                #save_excel(linelist[2],linelist[4])
-                save_txt(linelist[2],linelist[4])
+                save_excel(linelist[2],linelist[4],linelist[8])
+                #save_txt(linelist[2],linelist[4])
                 # last_fail = linelist[2]+linelist[13]
             if linelist[7] == 'true':
                 successcount = successcount + 1
